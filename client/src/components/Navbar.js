@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import SearchIcon from "@material-ui/icons/Search";
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import Badge from "@material-ui/core/Badge";
-import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 const Container = styled.div`
   height: 60px;
@@ -58,7 +57,7 @@ const Navbar = () => {
           <Language>EN</Language>
           <SearchContainer>
             <Input />
-            <SearchIcon style={{ color: "gray", fontSize: 16 }} />
+            <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
         </Left>
         <Center>
@@ -69,7 +68,7 @@ const Navbar = () => {
           <MenuItem>SIGN IN</MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlinedIcon />
+              <ShoppingCartOutlined />
             </Badge>
           </MenuItem>
         </Right>
