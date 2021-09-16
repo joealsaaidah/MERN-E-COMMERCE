@@ -1,11 +1,17 @@
 const router = require("express").Router();
+const {
+  updateUser,
+  deleteUser,
+  getUser,
+  getAllUsers,
+  getUserStats,
+} = require("../controllers/user");
+const { verifyToken, verifyAdmin } = require("../middleware/auth");
 
-router.route("/usertest").get((req, res, next) => {
-  res.send("testing user");
-});
-
-router.route("/username").post((req, res, next) => {
-  res.send(`welcome ${req.body.username}`);
-});
+router.route("/:id").put(verifyToken, updateUser);
+router.route("/:id").delete(verifyToken, deleteUser);
+router.route("/find/:id").get(verifyToken, verifyAdmin, getUser);
+router.route("/").get(verifyToken, verifyAdmin, getAllUsers);
+router.route("/stats").get(verifyToken, verifyAdmin, getUserStats);
 
 module.exports = router;
